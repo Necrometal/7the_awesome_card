@@ -50,14 +50,18 @@
         return focus + target
     })
 
+    const classeBorder = computed(() => props.target ? 'active' : '')
+
 </script>
 
 <template>
     <div 
-        class="card-content card-front px-2 py-2 d-flex flex-column justify-content-between h-100" 
+        class="card-content card-front px-2 py-2 d-flex flex-column justify-content-between h-100 relative" 
         :style="styles"
         :class="classe"
     >
+        <div class="border-focus" :class="classeBorder"></div>
+
         <div class="d-flex justify-content-between">
             <div class="icon-card">
                 <i class="bi bi-credit-card-fill"></i>

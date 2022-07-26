@@ -38,7 +38,7 @@
 }
 
 .card-number {
-    color: #007db9;
+    color: white;
     display: flex;
     justify-content: space-between;
 }
@@ -56,22 +56,49 @@
 }
 
 .card-front.cardnumber {
-    .card-number {
+    .border-focus.active {
+        width: 85%;
+        height: 40px;
         border: 1px solid white;
         border-radius: 5px;
+        transform: translateX(34px) translateY(115px);
+        background-color: #08142f51;
     }
 }
 
 .card-front.cardholder {
-    .card-holder {
+    .border-focus.active {
+        width: 60%;
+        height: 75px;
         border: 1px solid white;
         border-radius: 5px;
+        transform: translateX(34px) translateY(165px);
+        background-color: #08142f51;
     }
 }
 
 .card-front.cardmonth, .card-front.cardyear {
-    .card-expires {
+    .border-focus.active {
+        width: 35%;
+        height: 75px;
         border: 1px solid white;
         border-radius: 5px;
+        transform: translateX(255px) translateY(165px);
+        background-color: #08142f51;
     }
+}
+
+.border-focus{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.border-focus {
+    transition-duration: 0.6s;
 }
