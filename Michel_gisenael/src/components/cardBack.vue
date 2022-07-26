@@ -8,7 +8,7 @@
     import { computed } from 'vue'
     import { baseUrl } from '@/composables/configs'
 
-    defineProps({
+    const  props = defineProps({
         data: {
             type: Object,
             default: null
@@ -20,6 +20,7 @@
     })
 
     const styles = computed(() => `background-image: url('${baseUrl}/images/moon-bg.jpg')`)
+    const cw = computed(() => props.data?.cw ? props.data.cw : '')
 </script>
 
 <template>
@@ -33,7 +34,7 @@
         <div class="px-2">
             <div class="form-group">
                 <label class="text-right w-100 py-2">CW</label>
-                <input type="password" class="form-control text-right" value="****" disabled>
+                <input type="password" class="form-control text-right" :value="cw" disabled>
             </div>
 
             <div class="d-flex justify-content-end">

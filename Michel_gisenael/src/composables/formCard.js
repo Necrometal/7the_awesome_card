@@ -15,6 +15,7 @@ export function useFormCard(){
     })
 
     const cwFocus = ref(false)
+    const inptTarget = ref('')
 
     const months = generatemonth()
     const years = generateyear()
@@ -38,6 +39,14 @@ export function useFormCard(){
         cwFocus.value = e.type == 'focus' ? true : false
     }
 
+    const inputTarget = function(e){
+        if(e.type == 'blur'){
+            inptTarget.value = ''
+        }else{
+            inptTarget.value = e.target.id
+        }
+    }
+
     return {
         form,
         months,
@@ -46,6 +55,8 @@ export function useFormCard(){
         dataFront,
         dataBack,
         inputFocusing,
-        cwFocus
+        cwFocus,
+        inputTarget,
+        inptTarget
     }
 }

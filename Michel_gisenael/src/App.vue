@@ -6,7 +6,7 @@
     import { useFormCard } from '@/composables/formCard'
 
     const handleInputKey = useCreditCardValidation()
-    const { form, months, years, handleFormatCard, dataFront, dataBack, inputFocusing, cwFocus } = useFormCard()
+    const { form, months, years, handleFormatCard, dataFront, dataBack, inputFocusing, cwFocus, inputTarget, inptTarget } = useFormCard()
 </script>
 
 <template>
@@ -15,7 +15,7 @@
 
             <div class="card-platform">
                 <div class="card-physic-container relative">
-                    <cardFront :data="dataFront" :focused="cwFocus"/>
+                    <cardFront :data="dataFront" :focused="cwFocus" :target="inptTarget"/>
                     <cardBack :data="dataBack" :focused="cwFocus"/>
                 </div>
             </div>
@@ -31,13 +31,22 @@
                         class="form-control"
                         :value="form.cardNumber"
                         @input="handleFormatCard"
+                        @focus="inputTarget"
+                        @blur="inputTarget"
                         maxlength="19" 
                     >
                 </div>
 
                 <div class="form-group my-4">
                     <label for="cardholder" class="label-form my-2">Cards holder</label>
-                    <input type="text" id="cardholder" class="form-control" v-model="form.cardHolder">
+                    <input 
+                        type="text" 
+                        id="cardholder" 
+                        class="form-control" 
+                        v-model="form.cardHolder"
+                        @focus="inputTarget"
+                        @blur="inputTarget"
+                    >
                 </div>
 
                 <div class="row my-4">
@@ -46,13 +55,27 @@
                             <label for="cardmonth" class="label-form my-2">Expiration date</label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <select name="" id="cardmonth" class="form-select" v-model="form.month">
+                                    <select 
+                                        name="" 
+                                        id="cardmonth" 
+                                        class="form-select" 
+                                        v-model="form.month"
+                                        @focus="inputTarget"
+                                        @blur="inputTarget"
+                                    >
                                         <option :value="month" v-for="(month, i) in months" :key="'month'+i">{{ month }}</option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <select name="" id="cardmonth" class="form-select" v-model="form.year">
+                                    <select 
+                                        name="" 
+                                        id="cardyear" 
+                                        class="form-select" 
+                                        v-model="form.year"
+                                        @focus="inputTarget"
+                                        @blur="inputTarget"
+                                    >
                                         <option :value="year" v-for="(year, i) in years" :key="'year'+i">{{ year }}</option>
                                     </select>
                                 </div>

@@ -34,7 +34,6 @@
 }
 
 .card-front.active{
-    // transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
     opacity: 1;
 }
 
@@ -44,7 +43,35 @@
     justify-content: space-between;
 }
 
+.card-number, .card-holder, .card-expires {
+    transition: all 1s ease-in-out;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
 .card-number-item {
     font-size: 25px;
     font-weight: 500;
+}
+
+.card-front.cardnumber {
+    .card-number {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+}
+
+.card-front.cardholder {
+    .card-holder {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+}
+
+.card-front.cardmonth, .card-front.cardyear {
+    .card-expires {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
 }
