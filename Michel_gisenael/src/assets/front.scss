@@ -1,0 +1,50 @@
+.icon-card {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        font-size: 40px;
+    }
+}
+
+.card-number {
+    font-size: 35px;
+}
+
+.card-front-info {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+
+.card-front.unactive{
+    transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+    opacity: 0;
+}
+
+.card-front.active{
+    // transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+    opacity: 1;
+}
+
+.card-number {
+    color: #007db9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-number-item {
+    font-size: 25px;
+    font-weight: 500;
+}

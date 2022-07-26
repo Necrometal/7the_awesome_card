@@ -30,29 +30,24 @@ input[type=number] {
 
 .card-platform {
     position: absolute;
-    top: -80px;
+    top: -180px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
+.card-physic-container {
+    width: 80%;
+    height: 250px;
+    border-radius: 5px;
+    color:  white;
+}
 
-
-// .test {
-//     height: 40px;
-//     width: 100%;
-//     background-color: red;
-// }
-
-// &.-active {
-//     .card-item__side {
-//       &.-front {
-//         transform: perspective(1000px) rotateY(180deg) rotateX(0deg)
-//           rotateZ(0deg);
-//       }
-//       &.-back {
-//         transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);
-//         // box-shadow: 0 20px 50px 0 rgba(81, 88, 206, 0.65);
-//       }
-//     }
-//   }
+.card-content {
+    position: absolute;
+    background-size: contain;
+    border-radius: 5px;
+    width: 80%;
+    height: 250px;
+    transition-duration: 1s;
+}

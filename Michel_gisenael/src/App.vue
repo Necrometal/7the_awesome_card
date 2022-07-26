@@ -1,12 +1,12 @@
 <script setup>
+    import { baseUrl } from '@/composables/configs'
     import cardFront from '@/components/cardFront.vue'
     import cardBack from '@/components/cardBack.vue'
     import { useCreditCardValidation } from '@/composables/inputValidations'
     import { useFormCard } from '@/composables/formCard'
 
     const handleInputKey = useCreditCardValidation()
-    const { form, months, years, handleFormatCard } = useFormCard()
-
+    const { form, months, years, handleFormatCard, dataFront, dataBack, inputFocusing, cwFocus } = useFormCard()
 </script>
 
 <template>
@@ -14,8 +14,9 @@
         <div class="card card-awesome relative">
 
             <div class="card-platform">
-                <div class="card-physic-container">
-                    
+                <div class="card-physic-container relative">
+                    <cardFront :data="dataFront" :focused="cwFocus"/>
+                    <cardBack :data="dataBack" :focused="cwFocus"/>
                 </div>
             </div>
 
@@ -70,6 +71,8 @@
                                 maxlength="4" 
                                 @keypress="handleInputKey"
                                 v-model="form.cw"
+                                @blur="inputFocusing"
+                                @focus="inputFocusing"
                             >
                         </div>
                     </div>
